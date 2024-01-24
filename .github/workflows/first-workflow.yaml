@@ -3,11 +3,26 @@ on : [push]
 
 jobs: 
     first-job:
-        runs-on: ubuntu-latest
-        steps:
-          - name: echo a sentence
-            run: echo 'Hello Mano'
-          - name: check versions
-            run : |
-              node -v
-              npm -v
+      runs-on: ubuntu-latest
+      steps:
+        - name: echo a sentence
+          run: echo 'Hello Mano'
+        - name: check versions
+          run : |
+            node -v
+            npm -v
+    second-job-parallel:
+      runs-on: macos-latest
+      steps:
+        - name: view sw version
+          run: sw_vers
+    third-job-afterfirst: 
+      runs-on: windows-lates
+      needs: [first-job,second-job-parallel]
+        steps: 
+          - name: echo a string
+            run: Write-Output "Hi Mano"
+          - name: error
+            run: error
+
+
