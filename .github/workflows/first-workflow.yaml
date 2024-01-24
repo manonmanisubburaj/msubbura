@@ -18,11 +18,11 @@ jobs:
           run: sw_vers
     third-job-afterfirst: 
       runs-on: windows-lates
-      needs: [first-job,second-job-parallel]
-        steps: 
-          - name: echo a string
-            run: Write-Output "Hi Mano"
-          - name: error
-            run: error
+      needs: first-job
+      steps: 
+        - name: echo a string
+          run: Write-Output "Hi Mano"
+        - name: error
+          run: error
 
 
