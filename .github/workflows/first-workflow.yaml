@@ -16,8 +16,9 @@ jobs:
       steps:
         - name: view sw version
           run: sw_vers
+
     third-job-afterfirst: 
-      runs-on: windows-lates
+      runs-on: windows-latest
       needs: first-job
       steps: 
         - name: echo a string
