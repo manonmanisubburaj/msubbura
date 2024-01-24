@@ -24,6 +24,6 @@ jobs:
         - name: echo a string
           run: Write-Output "Hi Mano"
         - name: error
-          run: error
+          run: errormessage 
 
 
